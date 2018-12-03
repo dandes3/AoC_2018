@@ -4,11 +4,17 @@ program day1pt2
     implicit none
 
     ! Values
+    character(26) :: alpha
     character(len=1) :: sign
     character(len=200) :: line
     character(len=199) :: prenum
-    integer :: number, ios, fileSize, frequency = 0
+    integer :: i, number, ios, fileSize, frequency = 0
     integer, dimension(:), allocatable :: previousFreqs
+
+    ! Populate array with alphabet
+    do i = 1, 26
+        alpha(i:i) = achar(iachar('a') + i - 1)
+    end do
 
 
     ! Open file as identifier 1
