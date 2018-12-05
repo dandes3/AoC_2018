@@ -1,5 +1,4 @@
 program day2pt2
-    
     use dynamicArray
 
     implicit none

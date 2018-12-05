@@ -8,21 +8,13 @@ module dynamicArray
         implicit none
 
         integer :: i, isize
-        !integer :: element
-
-        character(len=200) :: element
-        character(len=:), dimension(:), allocatable :: array(:)
-        character(len=:), dimension(:), allocatable :: newArray(:)
-
-        !integer, dimension(:), allocatable :: array
-        !integer, dimension(:), allocatable :: newArray
+        integer :: element
+        integer, dimension(:), allocatable :: array
+        integer, dimension(:), allocatable :: newArray
 
         if (allocated(array)) then
             isize = len(array)
-
-            allocate(character(len(element)) :: newArray(isize+1))
-
-            !allocate(newArray(isize+1))
+            allocate(newArray(isize+1))
             do i=1, isize
                 newArray(i) = array(i)
             end do
@@ -32,8 +24,7 @@ module dynamicArray
             call move_alloc(newArray, array)
 
         else
-            allocate(character(len(element)) :: array(1))
-            !allocate(array(1))
+            allocate(array(1))
             array(1) = element
         end if
     end subroutine addElementToArray
